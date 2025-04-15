@@ -21,12 +21,14 @@ let
             inputs.xmonad.nixosModules.xmonad
         ];
     };
+
+    nixosConfigurations = {
+        inherit hyperion hyperionWithVr;
+        default = hyperion;
+    };
 in
 {
     flake = {
-        nixosConfigurations = {
-            inherit hyperion hyperionWithVr;
-            default = hyperion;
-        };
+        inherit nixosConfigurations;
     };
 }
